@@ -1,0 +1,131 @@
+import luigi
+
+from pneumonia.model.vgg16 import VGG16
+
+
+class RunMultipleModels(luigi.WrapperTask):
+    def requires(self):
+        # Variações do melhor modelo #VGG16_0.95069
+        # yield VGG16(dense_neurons=4096,
+        #             frozen_layers=9,
+        #             dropout=None,
+        #             learning_rate=0.0001,
+        #             sampling_strategy="undersample")
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="undersample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="undersample",
+                    batch_size=90)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=90)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=13,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="undersample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=13,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="undersample",
+                    batch_size=90)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=13,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=4096,
+                    frozen_layers=13,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=90)
+
+        # Variações do segundo melhor modelo #VGG16_50_True_512_9433d3de20
+        # yield VGG16(dense_neurons=512,
+        #             frozen_layers=9,
+        #             dropout=0.2,
+        #             learning_rate=0.00001,
+        #             sampling_strategy="oversample")
+        yield VGG16(dense_neurons=512,
+                    frozen_layers=9,
+                    dropout=0.2,
+                    learning_rate=0.00001,
+                    sampling_strategy="oversample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=512,
+                    frozen_layers=9,
+                    dropout=0.2,
+                    learning_rate=0.00001,
+                    sampling_strategy="oversample",
+                    batch_size=90)
+        yield VGG16(dense_neurons=512,
+                    frozen_layers=9,
+                    dropout=0.2,
+                    learning_rate=0.00001,
+                    sampling_strategy="oversample",
+                    activation_function="selu",
+                    kernel_initializer="lecun_normal",
+                    batch_size=70)
+        yield VGG16(dense_neurons=512,
+                    frozen_layers=9,
+                    dropout=0.2,
+                    learning_rate=0.00001,
+                    sampling_strategy="oversample",
+                    activation_function="selu",
+                    kernel_initializer="lecun_normal",
+                    batch_size=90)
+
+        # Variações do terceiro melhor modelo #VGG16_50_True_2048_ee26c83803
+        # yield VGG16(dense_neurons=2048,
+        #             frozen_layers=9,
+        #             dropout=None,
+        #             learning_rate=0.0001,
+        #             sampling_strategy="oversample")
+        yield VGG16(dense_neurons=2048,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=70)
+        yield VGG16(dense_neurons=2048,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    batch_size=90)
+        yield VGG16(dense_neurons=2048,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    activation_function="selu",
+                    kernel_initializer="lecun_normal",
+                    batch_size=70)
+        yield VGG16(dense_neurons=2048,
+                    frozen_layers=9,
+                    dropout=None,
+                    learning_rate=0.0001,
+                    sampling_strategy="oversample",
+                    activation_function="selu",
+                    kernel_initializer="lecun_normal",
+                    batch_size=90)

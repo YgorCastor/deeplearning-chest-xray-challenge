@@ -1,0 +1,24 @@
+name: chest-xray-pneumonia
+channels:
+- anaconda
+dependencies:
+- python=3.6.5
+- pip
+- pandas=0.23.0
+- matplotlib=2.2.2
+- scipy=1.1.0
+- numpy=1.14.3
+- seaborn=0.8.1
+- scikit-learn=0.19.1
+- tensorflow-gpu=1.7.0
+- keras-gpu=2.1.5
+- pillow=5.1.0
+- luigi=2.7.5
+- tqdm=4.23.0
+- requests=2.18.4
+- jupyterlab=0.32.1
+- opencv=3.4.1
+- pip
+- pip:
+  - imbalanced-learn==0.3.3
+  - imgaug==0.2.5
